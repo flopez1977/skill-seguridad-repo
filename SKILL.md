@@ -343,7 +343,7 @@ Y anotar la entrada en el `LOG.md` del repo.
 | Semgrep verde pero no detecta nada | Falta `--error`, o los packs no aplican al lenguaje | Añadir `--error`; verificar el recuento de reglas en el log |
 | Avisos de Node 20 obsoleto | Actions en versiones antiguas | Subir a la última (`gh api repos/actions/checkout/releases/latest`) |
 | Fallos raros y dispersos | Puede ser una caída de GitHub | `curl -s https://www.githubstatus.com/api/v2/status.json` |
-| `Base branch was modified` al fusionar | Otra sesión pusheó a la rama base mientras corrían los checks | Mirar `git log` de la base y `git worktree list`; comprobar solapamiento real de ficheros; reintentar o integrar la base en la rama. Nunca forzar |
+| `Base branch was modified` al fusionar | Puede ser otra sesión, **o una caída del proveedor**. No suponerlo: en el caso real que originó esta nota el commit "nuevo" de la base era de tres semanas antes y lo había traído el propio `git pull` de apertura | Mirar la **fecha** del commit de la base (`git log -1 --format=%ad`), no solo su presencia, y el estado del proveedor. Si hay solapamiento real de ficheros, integrar la base en la rama; si no, reintentar. Nunca forzar |
 
 ---
 
