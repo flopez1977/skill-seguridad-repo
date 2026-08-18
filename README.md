@@ -72,7 +72,7 @@ También se activa sola al arrancar un repo nuevo que vaya a llevar tests.
 
 **La versión de destino la fija el entorno donde corre el código, no tu máquina.**
 
-Es habitual desarrollar sobre una versión muy por delante de la de producción. En el caso que originó esta skill: desarrollo en PHP 8.5, clientes en 8.0, y alguna web en 7.4.
+Es habitual desarrollar sobre una versión muy por delante de la de producción: la máquina de desarrollo va al día y el entorno de destino puede ir dos ramas mayores por detrás.
 
 Escribir `match`, promoción en constructor o `str_starts_with` (todo PHP 8.0) en un plugin destinado a un hosting con 7.4 **no da un aviso: da un fatal error de parseo el día del despliegue**, porque el fichero ni siquiera se puede leer.
 
